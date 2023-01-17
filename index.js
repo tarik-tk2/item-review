@@ -51,28 +51,26 @@ window.addEventListener("DOMContentLoaded", () => {
     desc.textContent=item.desc
 })
 rightBtn.addEventListener('click', () => {
-    current = current + 1;
-    if (current < 5) {   
-        const item = reviewsItem[current];
-        img.src = item.img;
-        name.textContent = item.name;
-        job.textContent = item.job;
-        desc.textContent = item.desc;
-    }
-    else { 
+    current++;
+    if (current > reviewsItem.length-1) {
         current=0
     }
+    currentPerson(current);
 
 })
-leftBtn.addEventListener('click', () =>{
-    current = current - 1;
-     if (current > -1) {
-       const item = reviewsItem[current];
+leftBtn.addEventListener('click', () => {
+    current--;
+    if (current < 0) {
+        current = reviewsItem.length - 1;
+    }
+    currentPerson(current)
+    
+})
+const currentPerson = (current) => { 
+ const item = reviewsItem[current];
        img.src = item.img;
        name.textContent = item.name;
        job.textContent = item.job;
        desc.textContent = item.desc;
-     } else {
-       current=4
-     }
-})
+     
+}
