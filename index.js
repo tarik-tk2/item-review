@@ -55,7 +55,7 @@ rightBtn.addEventListener('click', () => {
     if (current > reviewsItem.length-1) {
         current=0
     }
-    currentPerson(current);
+    currentPerson();
 
 })
 leftBtn.addEventListener('click', () => {
@@ -63,10 +63,10 @@ leftBtn.addEventListener('click', () => {
     if (current < 0) {
         current = reviewsItem.length - 1;
     }
-    currentPerson(current)
+    currentPerson()
     
 })
-const currentPerson = (current) => { 
+const currentPerson = () => { 
  const item = reviewsItem[current];
        img.src = item.img;
        name.textContent = item.name;
